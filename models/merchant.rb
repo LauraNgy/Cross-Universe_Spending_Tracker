@@ -24,6 +24,29 @@ class Merchant
     @id = results[0]['id'].to_i
   end
 
+  def update()
+    sql = "
+      UPDATE merchants
+      SET
+        name = $1
+      WHERE
+        id = $2
+    "
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.all()
+    sql = "
+      SELECT *
+      FROM
+        merchants
+    "
+    merchants = SqlRunner.run(sql)
+    result = self.map_items(merchants)
+    return  result
+  end
+
   def self.map_items(merchant_data)
     return merchant_data.map{ |merchant| Merchant.new(merchant)}
   end
