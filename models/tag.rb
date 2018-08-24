@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Tag
 
-  attr_reader :id, :name
+  attr_accessor :id, :name
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
@@ -20,6 +20,18 @@ class Tag
     values = [@name]
     results = SqlRunner.run(sql, values)
     @id = results[0]['id'].to_i
+  end
+
+  def update()
+    sql = "
+      UPDATE tags
+      SET
+        name = $1
+      WHERE
+        id = $2
+    "
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
   end
 
   def self.all()
