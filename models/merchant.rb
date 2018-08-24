@@ -24,4 +24,11 @@ class Merchant
     @id = results[0]['id'].to_i
   end
 
+  def self.delete_all()
+    sql = "
+      DELETE FROM merchants
+    "
+    SqlRunner.run(sql)
+  end
+
 end
