@@ -22,7 +22,14 @@ class Tag
     @id = results[0]['id'].to_i
   end
 
-  
+  def self.all()
+    sql = "
+    SELECT * FROM tags
+    "
+    tags= SqlRunner.run(sql)
+    return self.map_items(tags)
+  end
+
   def self.map_items(tag_data)
     result = tag_data.map {|tag| Tag.new(tag)}
     return result
