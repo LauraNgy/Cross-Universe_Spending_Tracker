@@ -22,6 +22,12 @@ class Tag
     @id = results[0]['id'].to_i
   end
 
+  
+  def self.map_items(tag_data)
+    result = tag_data.map {|tag| Tag.new(tag)}
+    return result
+  end
+
   def self.delete_all()
     sql = "
       DELETE FROM tags
