@@ -8,7 +8,14 @@ CREATE TABLE tags (
   name VARCHAR(255)
 );
 
-CREATE TABLE merchants(
+CREATE TABLE merchants (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255)
+);
+
+CREATE TABLE transactions (
+  id SERIAL4 PRIMARY KEY,
+  amount NUMERIC(12, 2),
+  merchant_id INT4 REFERENCES merchants(id),
+  tag_id INT4 REFERENCES tags(id)
 );
