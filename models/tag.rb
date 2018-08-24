@@ -12,9 +12,9 @@ class Tag
   def save()
     sql = "
       INSERT INTO tags
-      (name)
+        (name)
       VALUES
-      ($1)
+        ($1)
       RETURNING id
     "
     values = [@name]
@@ -28,6 +28,18 @@ class Tag
     "
     tags= SqlRunner.run(sql)
     return self.map_items(tags)
+  end
+
+  def self.find(id)
+    sql = "
+      SELECT * FROM tags
+      WHERE
+        id = $1
+    "
+    values = [id]
+    tag = SqlRunner.run(sql, values)[0]
+    result = Tag.new(tag)
+    return result
   end
 
   def self.map_items(tag_data)
