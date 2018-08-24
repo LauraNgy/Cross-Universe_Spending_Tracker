@@ -4,9 +4,9 @@ class Tag
 
   attr_reader :id, :name
 
-  def initialize(object)
-    @id = object['id'].to_i if object['id']
-    @name = object['name']
+  def initialize(params)
+    @id = params['id'].to_i if params['id']
+    @name = params['name']
   end
 
 
