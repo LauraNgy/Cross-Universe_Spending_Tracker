@@ -24,6 +24,10 @@ class Merchant
     @id = results[0]['id'].to_i
   end
 
+  def self.map_items(merchant_data)
+    return merchant_data.map{ |merchant| Merchant.new(merchant)}
+  end
+
   def self.delete_all()
     sql = "
       DELETE FROM merchants
