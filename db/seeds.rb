@@ -1,6 +1,8 @@
 require_relative('../models/tag.rb')
 require('pry-byebug')
 
+Tag.delete_all()
+
 @groceries_tag = Tag.new({
   "name" => "groceries"
   })
@@ -17,7 +19,10 @@ require('pry-byebug')
   "name" => "entertainment"
   })
 
-
+@groceries_tag.save()
+@beauty_tag.save()
+@transport_tag.save()
+@entertainment_tag.save()
 
 binding.pry
 nil
