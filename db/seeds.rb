@@ -1,7 +1,9 @@
 require_relative('../models/tag.rb')
+require_relative('../models/merchant.rb')
 require('pry-byebug')
 
 Tag.delete_all()
+Merchant.delete_all()
 
 
 ###########TAGS##############
@@ -44,6 +46,11 @@ Tag.delete_all()
 @merchant4 = Merchant.new({
   "name" => "The Cafe"
   })
+
+@merchant1.save()
+@merchant2.save()
+@merchant3.save()
+@merchant4.save()
 
 binding.pry
 nil
