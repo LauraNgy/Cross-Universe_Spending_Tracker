@@ -25,6 +25,19 @@ class Account
     @id = results[0]['id'].to_i
   end
 
+  def self.all()
+    sql = "
+    SELECT * FROM accounts
+    "
+    tags= SqlRunner.run(sql)
+    return self.map_items(tags)
+  end
+
+  def self.map_items(account_data)
+    result = account_data.map {|account| Account.new(account)}
+    return result
+  end
+
   def self.delete_all()
     sql = "
       DELETE FROM accounts
