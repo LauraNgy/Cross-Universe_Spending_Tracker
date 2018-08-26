@@ -25,6 +25,20 @@ class Account
     @id = results[0]['id'].to_i
   end
 
+  def update()
+    sql = "
+      UPDATE accounts
+      SET
+        (holder, currency_type, budget, balance)
+        =
+        ($1, $2, $3, $4)
+      WHERE
+        id = $5
+    "
+    values = [@holder, @currency_type, @budget, @balance, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.all()
     sql = "
     SELECT * FROM accounts
