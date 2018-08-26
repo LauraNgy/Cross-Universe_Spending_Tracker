@@ -4,7 +4,7 @@ class Transaction
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
-    @amount = params['amount'].to_i
+    @amount = params['amount'].to_f
     @merchant_id = params['merchant_id'].to_i
     @tag_id = params['tag_id'].to_i
     @description = params['description']

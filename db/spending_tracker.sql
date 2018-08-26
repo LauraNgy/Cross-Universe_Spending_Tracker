@@ -17,8 +17,7 @@ CREATE TABLE accounts (
   id SERIAL4,
   holder VARCHAR(255),
   currency VARCHAR(255) PRIMARY KEY,
-  budget NUMERIC(12, 2),
-  balance NUMERIC(12, 2)
+  budget NUMERIC(12, 2)
 );
 
 CREATE TABLE transactions (
