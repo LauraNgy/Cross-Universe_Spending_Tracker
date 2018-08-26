@@ -20,8 +20,8 @@ class Merchant
         id
     "
     values = [@name]
-    results = SqlRunner.run(sql, values)
-    @id = results[0]['id'].to_i
+    results = SqlRunner.run(sql, values)[0]
+    @id = results['id'].to_i
   end
 
   def update()

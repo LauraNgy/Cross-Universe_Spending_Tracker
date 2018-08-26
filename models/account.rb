@@ -2,12 +2,12 @@ require_relative('../db/sql_runner')
 
 class Account
 
-  attr_accessor :id, :holder, :currency_type, :budget, :balance
+  attr_accessor :id, :holder, :currency, :budget, :balance
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
     @holder = params['holder']
-    @currency_type = params['currency_type']
+    @currency = params['currency']
     @budget = params['budget'].to_i
     @balance = params['balance'].to_i
   end
@@ -21,8 +21,8 @@ class Account
       RETURNING id
     "
     values = [@holder, @currency_type, @budget, @balance]
-    results = SqlRunner.run(sql, values)
-    @id = results[0]['id'].to_i
+    results = SqlRunner.run(sql, values)[0]
+    @id = results['id'].to_i
   end
 
   def update()
