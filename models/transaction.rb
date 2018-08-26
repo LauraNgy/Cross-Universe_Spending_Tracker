@@ -25,6 +25,14 @@ class Transaction
     @id = results['id'].to_i
   end
 
+  def self.all()
+    sql = "
+      SELECT * FROM transactions
+    "
+    transactions = SqlRunner.run(sql)
+    return self.map_items(transactions)
+  end
+
   def self.map_items(transaction_data)
     result = transaction_data.map {|transaction| Transaction.new(transaction)}
     return result
