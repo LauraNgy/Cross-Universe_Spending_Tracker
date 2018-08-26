@@ -76,5 +76,10 @@ Merchant.delete_all()
   "balance" => 200
   })
 
+@account1.save()
+@account2.save()
+@account3.save()
+
+
 binding.pry
 nil
