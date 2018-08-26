@@ -1,6 +1,7 @@
 require_relative('../models/tag.rb')
 require_relative('../models/merchant.rb')
 require_relative('../models/account.rb')
+require_relative('../models/transaction.rb')
 require('pry-byebug')
 
 Tag.delete_all()
@@ -10,26 +11,26 @@ Account.delete_all()
 
 ###########TAGS##############
 
-@groceries_tag = Tag.new({
+@tag1 = Tag.new({
   "name" => "groceries"
   })
 
-@beauty_tag = Tag.new({
+@tag2 = Tag.new({
   "name" => "beauty"
   })
 
-@transport_tag = Tag.new({
+@tag3 = Tag.new({
   "name" => "transport"
   })
 
-@entertainment_tag = Tag.new({
+@tag4 = Tag.new({
   "name" => "entertainment"
   })
 
-@groceries_tag.save()
-@beauty_tag.save()
-@transport_tag.save()
-@entertainment_tag.save()
+@tag1.save()
+@tag2.save()
+@tag3.save()
+@tag4.save()
 
 
 ##########MERCHANTS##########
@@ -80,6 +81,26 @@ Account.delete_all()
 @account1.save()
 @account2.save()
 @account3.save()
+
+
+#######TRANSACTIONS##########
+@transaction1 = Transaction.new({
+  "amount" => 10,
+  "merchant_id" => @merchant1.id,
+  "tag_id" => @tag1.id,
+  "description" => "food",
+  "currency_type" => @account1.currency,
+  "transaction_date" => "3 Jan 2017"
+  })
+
+@transaction2 = Transaction.new({
+  "amount" => 15,
+  "merchant_id" => @merchant3.id,
+  "tag_id" => @tag4.id,
+  "description" => "video games",
+  "currency_type" => @account3.currency,
+  "transaction_date" => "21 Jan 2019"
+  })
 
 
 binding.pry
