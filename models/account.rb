@@ -47,6 +47,18 @@ class Account
     return self.map_items(tags)
   end
 
+  def self.find(id)
+    sql = "
+      SELECT * FROM accounts
+      WHERE
+        id = $1
+    "
+    values = [id]
+    account = SqlRunner.run(sql, values)[0]
+    result = Account.new(account)
+    return result
+  end
+
   def self.map_items(account_data)
     result = account_data.map {|account| Account.new(account)}
     return result
