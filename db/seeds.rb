@@ -1,5 +1,6 @@
 require_relative('../models/tag.rb')
 require_relative('../models/merchant.rb')
+require_relative('../models/account.rb')
 require('pry-byebug')
 
 Tag.delete_all()
@@ -51,6 +52,29 @@ Merchant.delete_all()
 @merchant2.save()
 @merchant3.save()
 @merchant4.save()
+
+
+########ACCOUNTS#############
+@account1 = Account.new({
+  "holder" => "Amy",
+  "currency_type" => "pounds",
+  "budget" => 100,
+  "balance" => 100
+  })
+
+@account2 = Account.new({
+  "holder" => "Dan",
+  "currency_type" => "potatoes",
+  "budget" => 500,
+  "balance" => 500
+  })
+
+@account3 = Account.new({
+  "holder" => "Rick",
+  "currency_type" => "schmeckles",
+  "budget" => 200,
+  "balance" => 200
+  })
 
 binding.pry
 nil
