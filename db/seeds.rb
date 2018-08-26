@@ -102,6 +102,9 @@ Account.delete_all()
   "transaction_date" => "21 Jan 2019"
   })
 
+@transaction1.save()
+@transaction2.save()
+
 
 binding.pry
 nil
