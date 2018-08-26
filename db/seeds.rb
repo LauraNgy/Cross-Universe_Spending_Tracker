@@ -5,6 +5,7 @@ require('pry-byebug')
 
 Tag.delete_all()
 Merchant.delete_all()
+Account.delete_all()
 
 
 ###########TAGS##############
