@@ -15,12 +15,12 @@ class Account
   def save()
     sql = "
       INSERT INTO accounts
-        (holder, currency_type, budget, balance)
+        (holder, currency, budget, balance)
       VALUES
         ($1, $2, $3, $4)
       RETURNING id
     "
-    values = [@holder, @currency_type, @budget, @balance]
+    values = [@holder, @currency, @budget, @balance]
     results = SqlRunner.run(sql, values)[0]
     @id = results['id'].to_i
   end
@@ -29,13 +29,13 @@ class Account
     sql = "
       UPDATE accounts
       SET
-        (holder, currency_type, budget, balance)
+        (holder, currency, budget, balance)
         =
         ($1, $2, $3, $4)
       WHERE
         id = $5
     "
-    values = [@holder, @currency_type, @budget, @balance, @id]
+    values = [@holder, @currency, @budget, @balance, @id]
     SqlRunner.run(sql, values)
   end
 
