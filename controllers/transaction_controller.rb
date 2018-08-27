@@ -12,6 +12,8 @@ also_reload('../models/*')
 
 # new
 get '/transactions/new' do
+  @merchants = Merchant.all()
+  @tags = Tag.all()
   erb(:"transactions/new")
 end
 
