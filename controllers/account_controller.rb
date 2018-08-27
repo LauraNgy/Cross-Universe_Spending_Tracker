@@ -10,6 +10,10 @@ get '/accounts' do
   erb (:"accounts/index")
 end
 
+get '/accounts/new' do
+  erb(:"accounts/new")
+end
+
 get '/accounts/:id' do
   @account = Account.find(params['id'].to_i)
   @transactions = Transaction.all()
