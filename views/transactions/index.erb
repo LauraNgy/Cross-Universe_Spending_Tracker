@@ -10,7 +10,7 @@
     <%end%>
   </ul>
   <!-- <button> Add new transaction </button> -->
-  <form action="index.html" method="post">
+  <form action="/transactions/new/<%=@account.id%>" method="get">
     <input type="submit" value="Add New Transaction">
   </form>
 </div>

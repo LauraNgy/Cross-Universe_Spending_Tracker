@@ -39,13 +39,13 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
-  def self.all_by_account_id(account)
+  def self.all_by_account_id(id)
     sql = "
       SELECT * FROM transactions
       WHERE
         account_id = $1
     "
-    values = [account.id]
+    values = [id]
     transactions = SqlRunner.run(sql, values)
     result = Transaction.map_items(transactions)
     return result

@@ -24,6 +24,14 @@
       <%end%>
     </select>
   </label>
-
+  <label>What currency is this transaction in?
+    <select name="account_id">
+      <% for account in @accounts %>
+        <option value="<%=account.id%>"
+          <%= "selected" if account.id == @acc_id %>
+          ><%=account.currency%></option>
+      <%end%>
+    </select>
+  </label>
   <input type="submit" value="Create new transaction">
 </form>
