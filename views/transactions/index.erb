@@ -3,7 +3,8 @@
   <h1>Here are your transactions for <%= @account.currency %></h1>
   <ul>
     <% for transaction in @transactions %>
-    <li><a href="/transactions/<%= transaction.id %>"> <%= transaction.description %> </a></li>
+    <li> <%= transaction.amount %> | <%= transaction.description %> |  <%= transaction.transaction_date %></li>
+    <button> show </button>
     <button> edit </button>
     <button> delete </button>
     <%end%>
