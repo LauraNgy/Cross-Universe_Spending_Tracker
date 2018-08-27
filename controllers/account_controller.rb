@@ -26,7 +26,7 @@ end
 # show
 get '/accounts/:id' do
   @account = Account.find(params['id'].to_i)
-  @transactions = Transaction.all()
+  @transactions = Transaction.all_by_account_id(params['id'].to_i)
   erb (:"transactions/index")
 end
 

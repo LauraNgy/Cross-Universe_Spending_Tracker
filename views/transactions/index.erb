@@ -3,12 +3,10 @@
   <h1>Here are your transactions for <%= @account.currency %></h1>
   <ul>
     <% for transaction in @transactions %>
-    <% if transaction.account_id == @account.id %>
     <li><a href="/transactions/<%= transaction.id %>"> <%= transaction.description %> </a></li>
     <button> edit </button>
     <button> delete </button>
     <%end%>
-    <% end %>
   </ul>
   <!-- <button> Add new transaction </button> -->
   <form action="index.html" method="post">

@@ -8,15 +8,28 @@ require('pry-byebug')
 also_reload('../models/*')
 
 # index
+# index is basically built from account_controller
 
 # new
+get '/transactions/new' do
+  erb(:"transactions/new")
+end
+
 
 # create
 
+
+
 # show
+
+
 
 # edit
 
+
+
 # update
+
+
 
 #delete

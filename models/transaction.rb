@@ -39,6 +39,18 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
+  def self.all_by_account_id(account)
+    sql = "
+      SELECT * FROM transactions
+      WHERE
+        account_id = $1
+    "
+    values = [account.id]
+    transactions = SqlRunner.run(sql, values)
+    result = Transaction.map_items(transactions)
+    return result
+  end
+
   def self.total(account)
     sql = "
       SELECT SUM(amount) FROM transactions
