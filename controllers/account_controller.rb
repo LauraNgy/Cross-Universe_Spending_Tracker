@@ -14,6 +14,12 @@ get '/accounts/new' do
   erb(:"accounts/new")
 end
 
+post '/accounts' do
+  @new_account = Account.new(params)
+  @new_account.save()
+  redirect to '/accounts'
+end
+
 get '/accounts/:id' do
   @account = Account.find(params['id'].to_i)
   @transactions = Transaction.all()
