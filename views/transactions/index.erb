@@ -1,6 +1,7 @@
 <ul>
   <% for transaction in @transactions %>
     <% if transaction.currency_type == @account.currency %>
+      <% transaction.save() %>
       <li><a href="/transactions/<%= transaction.id %>"> <%= transaction.description %> </a></li>
         <button> edit </button>
         <button> delete </button>

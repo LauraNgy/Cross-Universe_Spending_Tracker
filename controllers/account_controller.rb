@@ -35,3 +35,12 @@ get '/accounts/:id/edit' do
   @account = Account.find(params['id'].to_i)
   erb (:"accounts/edit")
 end
+
+# update
+post '/accounts/:id' do
+  @account = Account.new(params)
+  Account.delete(@account.id)
+  @account.save()
+  @transactions = Transaction.all()
+  erb (:"transactions/index")
+end

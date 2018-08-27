@@ -1,7 +1,7 @@
 <ul>
   <% for account in @accounts %>
   <li><a href="/accounts/<%= account.id %>"> <%= account.currency %> </a></li>
-    <button> edit </button>
+    <button><a href="accounts/<%=account.id%>/edit"> edit </a></button>
     <button> delete </button>
   <% end %>
   <button><a href="/accounts/new">Add new account</a></button>

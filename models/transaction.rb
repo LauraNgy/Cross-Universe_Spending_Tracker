@@ -1,6 +1,6 @@
 class Transaction
 
-  attr_accessor :id, :amount, :merchant_id, :tag_id, :description, :currency_type, :transaction_date
+  attr_accessor :id, :amount, :merchant_id, :tag_id, :description, :account_id, :transaction_date
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
@@ -8,19 +8,19 @@ class Transaction
     @merchant_id = params['merchant_id'].to_i
     @tag_id = params['tag_id'].to_i
     @description = params['description']
-    @currency_type = params['currency_type']
+    @account_id = params['account_id'].to_i
     @transaction_date = params['transaction_date']
   end
 
   def save()
     sql = "
       INSERT INTO transactions
-        (amount, merchant_id, tag_id, description, currency_type, transaction_date)
+        (amount, merchant_id, tag_id, description, account_id, transaction_date)
       VALUES
         ($1, $2, $3, $4, $5, $6)
       RETURNING id
     "
-    values = [@amount, @merchant_id, @tag_id, @description, @currency_type, @transaction_date]
+    values = [@amount, @merchant_id, @tag_id, @description, @account_id, @transaction_date]
     results = SqlRunner.run(sql, values)[0]
     @id = results['id'].to_i
   end
@@ -29,13 +29,13 @@ class Transaction
     sql = "
       UPDATE transactions
       SET
-        (amount, merchant_id, tag_id, description, currency_type, transaction_date)
+        (amount, merchant_id, tag_id, description, account_id, transaction_date)
         =
         ($1, $2, $3, $4, $5, $6)
       WHERE
         id = $7
     "
-    values = [@amount, @merchant_id, @tag_id, @description, @currency_type, @transaction_date, @id]
+    values = [@amount, @merchant_id, @tag_id, @description, @account_id, @transaction_date, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -43,9 +43,9 @@ class Transaction
     sql = "
       SELECT SUM(amount) FROM transactions
       WHERE
-        currency_type = $1
+        account_id = $1
     "
-    values = [account.currency]
+    values = [account.id]
     result = SqlRunner.run(sql, values)
     return result[0]['sum'].to_f
   end

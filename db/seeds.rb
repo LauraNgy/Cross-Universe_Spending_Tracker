@@ -87,7 +87,7 @@ Account.delete_all()
   "merchant_id" => @merchant1.id,
   "tag_id" => @tag1.id,
   "description" => "food",
-  "currency_type" => @account1.currency,
+  "account_id" => @account1.id,
   "transaction_date" => "3 Jan 2017"
   })
 
@@ -96,7 +96,7 @@ Account.delete_all()
   "merchant_id" => @merchant3.id,
   "tag_id" => @tag4.id,
   "description" => "video games",
-  "currency_type" => @account3.currency,
+  "account_id" => @account3.id,
   "transaction_date" => "21 Jan 2019"
   })
 
@@ -105,7 +105,7 @@ Account.delete_all()
   "merchant_id" => @merchant2.id,
   "tag_id" => @tag2.id,
   "description" => "skin cream",
-  "currency_type" => @account1.currency,
+  "account_id" => @account1.id,
   "transaction_date" => "01 Mar 2018"
   })
 
