@@ -1,11 +1,17 @@
-<ul>
-  <% for transaction in @transactions %>
-    <% if transaction.currency_type == @account.currency %>
-      <% transaction.save() %>
-      <li><a href="/transactions/<%= transaction.id %>"> <%= transaction.description %> </a></li>
-        <button> edit </button>
-        <button> delete </button>
+<h1>Your budget is <%= @account.budget %> <%= @account.currency %> </h1>
+<div class="content">
+  <h1>Here are your transactions for <%= @account.currency %></h1>
+  <ul>
+    <% for transaction in @transactions %>
+    <% if transaction.account_id == @account.id %>
+    <li><a href="/transactions/<%= transaction.id %>"> <%= transaction.description %> </a></li>
+    <button> edit </button>
+    <button> delete </button>
     <%end%>
-  <% end %>
-  <button> Add new transaction </button>
-</ul>
+    <% end %>
+  </ul>
+  <!-- <button> Add new transaction </button> -->
+  <form action="index.html" method="post">
+    <input type="submit" value="Add New Transaction">
+  </form>
+</div>

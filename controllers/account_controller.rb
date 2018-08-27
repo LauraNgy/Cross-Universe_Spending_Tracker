@@ -39,8 +39,13 @@ end
 # update
 post '/accounts/:id' do
   @account = Account.new(params)
+  @account.update()
+  redirect to '/accounts'
+end
+
+# delete
+post '/accounts/:id/delete' do
+  @account = Account.find(params['id'].to_i)
   Account.delete(@account.id)
-  @account.save()
-  @transactions = Transaction.all()
-  erb (:"transactions/index")
+  redirect to '/accounts'
 end

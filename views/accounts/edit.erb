@@ -1,8 +1,6 @@
 <h1>Please give the new details for this account!</h1>
 
 <form action="/accounts/<%=@account.id%>" method="post">
-  <label for="acc-holder">Account holder:</label>
-    <input id="acc-holder" type="text" name="holder" value="<%=@account.holder%>"/>
   <label for="acc-currency">Account currency:</label>
     <input id="acc-currency" type="text" name="currency" value="<%=@account.currency%>"/>
   <label for="acc-budget">Please provide a budget:</label>

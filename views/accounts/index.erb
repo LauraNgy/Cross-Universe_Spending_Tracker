@@ -1,8 +1,14 @@
 <ul>
   <% for account in @accounts %>
   <li><a href="/accounts/<%= account.id %>"> <%= account.currency %> </a></li>
-    <button><a href="accounts/<%=account.id%>/edit"> edit </a></button>
-    <button> delete </button>
+    <form action="accounts/<%=account.id%>/edit" method="get">
+        <input type="submit" value="Edit Account">
+    </form>
+    <form method="post" action="accounts/<%= account.id %>/delete">
+        <input type="submit" value="Delete Account"/>
+    </form>
   <% end %>
-  <button><a href="/accounts/new">Add new account</a></button>
+  <form action="/accounts/new" method="get">
+    <input type="submit"value="Add New Account">
+  </form>
 </ul>
