@@ -39,6 +39,17 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
+  def self.total(account)
+    sql = "
+      SELECT SUM(amount) FROM transactions
+      WHERE
+        currency_type = $1
+    "
+    values = [account.currency]
+    result = SqlRunner.run(sql, values)
+    return result[0]['sum'].to_f
+  end
+
   def self.all()
     sql = "
       SELECT * FROM transactions

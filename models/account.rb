@@ -38,17 +38,6 @@ class Account
     SqlRunner.run(sql, values)
   end
 
-  def get_total_transactions()
-    sql = "
-      SELECT amount FROM transactions
-      WHERE
-        transactions.currency_type = $1
-    "
-    values = [@currency]
-    results = SqlRunner.run(sql, values)
-    return results.reduce(0.0) {|total, result| total += result['amount'].to_f}
-  end
-
   def self.all()
     sql = "
     SELECT * FROM accounts
