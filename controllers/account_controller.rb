@@ -5,23 +5,33 @@ require_relative('../models/transaction.rb')
 require('pry-byebug')
 also_reload('../models/*')
 
+# index
 get '/accounts' do
   @accounts = Account.all()
   erb (:"accounts/index")
 end
 
+# new
 get '/accounts/new' do
-  erb(:"accounts/new")
+  erb (:"accounts/new")
 end
 
+# create
 post '/accounts' do
   @new_account = Account.new(params)
   @new_account.save()
   redirect to '/accounts'
 end
 
+# show
 get '/accounts/:id' do
   @account = Account.find(params['id'].to_i)
   @transactions = Transaction.all()
   erb (:"transactions/index")
+end
+
+# edit
+get '/accounts/:id/edit' do
+  @account = Account.find(params['id'].to_i)
+  erb (:"accounts/edit")
 end
