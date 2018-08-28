@@ -6,5 +6,9 @@
   <li>Date: <%=@transaction.transaction_date%></li>
 </ul>
 
-<button> edit </button>
-<button> delete </button>
+<form action="<%=@transaction.id%>/edit" method="get">
+  <input type="submit" value="Edit Transaction">
+</form>
+<form action="<%=@transaction.id%>" method="post">
+  <input type="submit" value="Delete Transaction">
+</form>

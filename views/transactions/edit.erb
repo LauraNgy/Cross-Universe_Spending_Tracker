@@ -1,0 +1,35 @@
+<h1>Please give details for the new transaction!</h1>
+
+<form action="/<%=@transaction.id%>" method="post">
+  <label for="tr-amount">Ammount spent:
+    <input id="tr-amount" type="number" name="amount" value="<%=@transaction.amount%>"/>
+  </label>
+  <label for="tr-description">Please provide a small description for the transaction:
+    <input id="tr-description" type="text" name="description" value="<%=@transaction.description%>"/>
+  </label>
+  <label>Please provide a small description for the transaction:
+    <input id="tr-date" type="date" name="transaction_date" value="<%=@transaction.transaction_date%>"/>
+  </label>
+  <label>Where did you get this from?
+    <select name="merchant_id">
+      <% for merchant in @merchants %>
+        <option value="<%=merchant.id%>"><%=merchant.name%></option>
+      <%end%>
+    </select>
+  </label>
+  <label>What category does this belong to?
+    <select name="tag_id">
+      <% for tag in @tags %>
+        <option value="<%=tag.id%>"><%=tag.name%></option>
+      <%end%>
+    </select>
+  </label>
+  <label>What currency is this transaction in?
+    <select name="account_id">
+      <% for account in @accounts %>
+        <option value="<%=account.id%>"><%=account.currency%></option>
+      <%end%>
+    </select>
+  </label>
+  <input type="submit" value="Edit this transaction">
+</form>

@@ -37,7 +37,13 @@ get '/accounts/transactions/:id' do
 end
 
 # edit
-
+get '/accounts/transactions/:id/edit' do
+  @transaction = Transaction.find(params['id'].to_i)
+  @tags = Tag.all()
+  @merchants = Merchant.all()
+  @accounts = Account.all()
+  erb (:"transactions/edit")
+end
 
 
 # update
