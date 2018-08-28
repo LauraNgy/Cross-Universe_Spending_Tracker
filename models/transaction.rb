@@ -51,6 +51,20 @@ class Transaction
     return result
   end
 
+  def set_merchant_to_null()
+    sql = "
+      UPDATE transactions
+      SET
+        merchant_id = NULL
+      WHERE
+        id = $1
+    "
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+
+
   def tag()
     sql = "
       SELECT * FROM tags
