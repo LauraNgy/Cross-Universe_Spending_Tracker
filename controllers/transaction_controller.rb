@@ -24,7 +24,7 @@ end
 post '/transactions' do
   @new_transaction = Transaction.new(params)
   @new_transaction.save()
-  redirect to '/accounts'
+  redirect to '/accounts/transactions/done'
 end
 
 
@@ -45,9 +45,12 @@ get '/accounts/transactions/:id/edit' do
   erb (:"transactions/edit")
 end
 
-
 # update
-
+post '/transactions/:id' do
+  @transaction = Transaction.new(params)
+  @transaction.update()
+  redirect to '/accounts/transactions/done'
+end
 
 
 #delete

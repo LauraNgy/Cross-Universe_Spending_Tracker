@@ -1,7 +1,7 @@
 <h1>Please give details for the new transaction!</h1>
 
-<form action="/<%=@transaction.id%>" method="post">
-  <label for="tr-amount">Ammount spent:
+<form action="/transactions/<%=@transaction.id%>" method="post">
+  <label for="tr-amount">Amount spent:
     <input id="tr-amount" type="number" name="amount" value="<%=@transaction.amount%>"/>
   </label>
   <label for="tr-description">Please provide a small description for the transaction:
