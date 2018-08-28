@@ -5,8 +5,8 @@ class Transaction
   def initialize(params)
     @id = params['id'].to_i if params['id']
     @amount = params['amount'].to_f
-    @merchant_id = params['merchant_id'].to_i if params['merchant_id']
-    @tag_id = params['tag_id'].to_i if params['tag_id']
+    @merchant_id = params['merchant_id'].to_i
+    @tag_id = params['tag_id'].to_i
     @description = params['description']
     @account_id = params['account_id'].to_i
     @transaction_date = params['transaction_date']
@@ -73,7 +73,6 @@ class Transaction
     "
     values = [@id]
     SqlRunner.run(sql, values)
-    update()
     end
 
   def tag()
@@ -108,6 +107,16 @@ class Transaction
       end
     }
     Merchant.delete(merchant.id)
+  end
+
+  def self.delete_tag(tag)
+    transactions = Transaction.all()
+    transactions.each { |transaction|
+      if transaction.tag_id == tag.id
+        transaction.set_tag_to_null()
+      end
+    }
+    Tag.delete(tag.id)
   end
 
   def self.total(account)

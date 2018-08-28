@@ -103,8 +103,8 @@ Account.delete_all()
 @transaction3 = Transaction.new({
   "amount" => 12.3,
   "merchant_id" => @merchant2.id,
-  "tag_id" => @tag2.id,
-  "description" => "skin cream",
+  "tag_id" => @tag1.id,
+  "description" => "toilet paper",
   "account_id" => @account1.id,
   "transaction_date" => "01 Mar 2018"
   })
