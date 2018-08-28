@@ -2,7 +2,7 @@
   <% for account in @accounts %>
   <li> <%= account.currency %> </li>
     <form action="accounts/<%=account.id%>" method="get">
-        <input type="submit" value="Show Account">
+        <input type="submit" value="Show Details">
     <form action="accounts/<%=account.id%>/edit" method="get">
         <input type="submit" value="Edit Account">
     </form>
