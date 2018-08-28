@@ -12,18 +12,32 @@ get '/merchants' do
 end
 
 # new
-
+get '/merchants/new' do
+  erb (:"merchants/new")
+end
 
 # create
+post '/merchants' do
 
+end
 
 # show
-
+get '/merchants/:id' do
+  @merchant = Merchant.find(params['id'].to_i)
+  erb (:"merchants/show")
+end
 
 # edit
-
+get '/merchants/:id/edit' do
+  erb (:"merchants/edit")
+end
 
 # update
+post '/merchants/:id' do
 
+end
 
 # delete
+post '/merchants/:id/delete' do
+
+end

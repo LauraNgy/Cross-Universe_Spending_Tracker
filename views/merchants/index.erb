@@ -2,6 +2,8 @@
 
 <ul>
   <% for merchant in @merchants %>
-    <li><a href="#"><%=merchant.name%></a></li>
+    <li><a href="/merchants/<%=merchant.id%>"><%=merchant.name%></a></li>
   <%end%>
 </ul>
+
+<a href="/merchants/new">Add New Merchant</a>
