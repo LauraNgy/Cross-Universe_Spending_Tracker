@@ -16,7 +16,7 @@ get '/transactions/new/:id' do
   @tags = Tag.all()
   @accounts = Account.all()
   @acc_id = params['id'].to_i
-  erb(:"transactions/new")
+  erb (:"transactions/new")
 end
 
 
@@ -29,8 +29,12 @@ end
 
 
 # show
-
-
+get '/accounts/transactions/:id' do
+  @transaction = Transaction.find(params['id'].to_i)
+  @merchant = @transaction.merchant()
+  @tag = @transaction.tag()
+  erb (:"transactions/show")
+end
 
 # edit
 

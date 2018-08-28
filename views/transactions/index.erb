@@ -4,13 +4,13 @@
   <ul>
     <% for transaction in @transactions %>
     <li> <%= transaction.amount %> | <%= transaction.description %> |  <%= transaction.transaction_date %></li>
-    <button> show </button>
-    <button> edit </button>
-    <button> delete </button>
+    <form action="transactions/<%=transaction.id%>" method="get">
+      <input type="submit" value="Show Details">
+    </form>
     <%end%>
   </ul>
   <!-- <button> Add new transaction </button> -->
-  <form action="/transactions/new/<%=@account.id%>" method="get">
+  <form action="../transactions/new/<%=@account.id%>" method="get">
     <input type="submit" value="Add New Transaction">
   </form>
 </div>
