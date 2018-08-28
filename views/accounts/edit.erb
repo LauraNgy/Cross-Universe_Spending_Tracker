@@ -4,7 +4,7 @@
   <label for="acc-currency">Account currency:</label>
     <input id="acc-currency" type="text" name="currency" value="<%=@account.currency%>"/>
   <label for="acc-budget">Please provide a budget:</label>
-    <input id="acc-holder" type="number" name="budget" value="<%=@account.budget%>"/>
+    <input id="acc-holder" type="number" name="budget" value="<%=@account.budget%>" step="0.01"/>
 
   <input type="submit" value="Update account">
 </form>

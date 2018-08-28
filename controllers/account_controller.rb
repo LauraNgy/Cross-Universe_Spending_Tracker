@@ -32,6 +32,7 @@ end
 get '/accounts/:id' do
   @account = Account.find(params['id'].to_i)
   @transactions = Transaction.all_by_account_id(params['id'].to_i)
+  @total = Transaction.total(@account)
   erb (:"transactions/index")
 end
 
