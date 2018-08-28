@@ -89,6 +89,7 @@ class Transaction
       tag = SqlRunner.run(sql, values)[0]
       result = Tag.new(tag)
     else result = nil
+    end
     return result
   end
 
