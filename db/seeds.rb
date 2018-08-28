@@ -109,9 +109,20 @@ Account.delete_all()
   "transaction_date" => "01 Mar 2018"
   })
 
+@transaction4 = Transaction.new({
+  "amount" => 2.5,
+  "merchant_id" => @merchant2.id,
+  "tag_id" => @tag3.id,
+  "description" => "bike helmet",
+  "account_id" => @account1.id,
+  "transaction_date" => "10 Mar 2018"
+  })
+
+
 @transaction1.save()
 @transaction2.save()
 @transaction3.save()
+@transaction4.save()
 
 
 binding.pry

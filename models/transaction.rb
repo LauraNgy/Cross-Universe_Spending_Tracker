@@ -5,7 +5,7 @@ class Transaction
   def initialize(params)
     @id = params['id'].to_i if params['id']
     @amount = params['amount'].to_f
-    @merchant_id = params['merchant_id'].to_i
+    @merchant_id = params['merchant_id'].to_i if params['merchant_id']
     @tag_id = params['tag_id'].to_i
     @description = params['description']
     @account_id = params['account_id'].to_i
@@ -63,8 +63,6 @@ class Transaction
     SqlRunner.run(sql, values)
   end
 
-
-
   def tag()
     sql = "
       SELECT * FROM tags
@@ -87,6 +85,16 @@ class Transaction
     transactions = SqlRunner.run(sql, values)
     result = Transaction.map_items(transactions)
     return result
+  end
+
+  def self.delete_merchant(merchant)
+    transactions = Transaction.all()
+    transactions.each { |transaction|
+      if transaction.merchant_id == merchant.id
+        transaction.set_merchant_to_null()
+      end
+    }
+    Merchant.delete(merchant.id)
   end
 
   def self.total(account)
