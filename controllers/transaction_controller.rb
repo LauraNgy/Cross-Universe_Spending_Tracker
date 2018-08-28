@@ -54,3 +54,7 @@ end
 
 
 #delete
+post '/accounts/transactions/:id/delete' do
+  Transaction.delete(params['id'].to_i)
+  redirect to '/accounts/transactions/done'
+end
