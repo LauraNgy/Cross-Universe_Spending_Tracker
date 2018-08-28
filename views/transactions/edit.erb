@@ -23,6 +23,7 @@
       <% for tag in @tags %>
         <option value="<%=tag.id%>"><%=tag.name%></option>
       <%end%>
+      <option selected value="0"></option>
     </select>
   </label>
   <label>What currency is this transaction in?
@@ -30,6 +31,7 @@
       <% for account in @accounts %>
         <option value="<%=account.id%>"><%=account.currency%></option>
       <%end%>
+      <option selected value="0"></option>
     </select>
   </label>
   <input type="submit" value="Edit this transaction">
