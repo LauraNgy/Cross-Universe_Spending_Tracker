@@ -6,5 +6,10 @@ require_relative('controllers/tag_controller')
 require_relative('controllers/transaction_controller')
 
 get '/' do
-  erb( :index )
+  erb (:index)
+end
+
+# feedback page
+get '/done' do
+  erb (:done)
 end

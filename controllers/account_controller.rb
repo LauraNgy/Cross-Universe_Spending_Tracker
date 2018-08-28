@@ -23,11 +23,6 @@ post '/accounts' do
   redirect to '/accounts'
 end
 
-# feedback page
-get '/accounts/transactions/done' do
-  erb (:"accounts/done")
-end
-
 # edit
 get '/accounts/:id/edit' do
   @account = Account.find(params['id'].to_i)

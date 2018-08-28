@@ -24,7 +24,7 @@ end
 post '/transactions' do
   @new_transaction = Transaction.new(params)
   @new_transaction.save()
-  redirect to '/accounts/transactions/done'
+  redirect to '/done'
 end
 
 
@@ -49,12 +49,12 @@ end
 post '/transactions/:id' do
   @transaction = Transaction.new(params)
   @transaction.update()
-  redirect to '/accounts/transactions/done'
+  redirect to '/done'
 end
 
 
 #delete
 post '/transactions/:id/delete' do
   Transaction.delete(params['id'].to_i)
-  redirect to '/accounts/transactions/done'
+  redirect to '/done'
 end

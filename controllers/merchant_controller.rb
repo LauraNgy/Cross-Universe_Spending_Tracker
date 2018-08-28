@@ -18,7 +18,9 @@ end
 
 # create
 post '/merchants' do
-
+  @new_merchant = Merchant.new(params)
+  @new_merchant.save()
+  redirect to '/done'
 end
 
 # show
