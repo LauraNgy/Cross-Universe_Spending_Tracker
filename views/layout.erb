@@ -6,6 +6,19 @@
     <link rel="stylesheet" type="text/css" href="/styles/default.css">
   </head>
   <body>
-    <%= yield %>
+    <header>
+      <!-- breadcrumbs -->
+    </header>
+    <nav>
+      <a href="/accounts">See your accounts</a>
+      <a href="/merchants">See your merchants</a>
+      <a href="/tags">See your tags</a>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <!-- whatever -->
+    </footer>
   </body>
 </html>
