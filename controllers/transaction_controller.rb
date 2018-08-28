@@ -11,7 +11,7 @@ also_reload('../models/*')
 # index is basically built from account_controller
 
 # new
-get '/transactions/new/:id' do
+get '/transactions/new' do
   @merchants = Merchant.all()
   @tags = Tag.all()
   @accounts = Account.all()
@@ -29,7 +29,7 @@ end
 
 
 # show
-get '/accounts/transactions/:id' do
+get '/transactions/:id' do
   @transaction = Transaction.find(params['id'].to_i)
   @merchant = @transaction.merchant()
   @tag = @transaction.tag()
@@ -37,7 +37,7 @@ get '/accounts/transactions/:id' do
 end
 
 # edit
-get '/accounts/transactions/:id/edit' do
+get '/transactions/:id/edit' do
   @transaction = Transaction.find(params['id'].to_i)
   @tags = Tag.all()
   @merchants = Merchant.all()
@@ -54,7 +54,7 @@ end
 
 
 #delete
-post '/accounts/transactions/:id/delete' do
+post '/transactions/:id/delete' do
   Transaction.delete(params['id'].to_i)
   redirect to '/accounts/transactions/done'
 end

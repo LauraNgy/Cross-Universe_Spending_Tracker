@@ -28,19 +28,18 @@ get '/accounts/transactions/done' do
   erb (:"accounts/done")
 end
 
+# edit
+get '/accounts/:id/edit' do
+  @account = Account.find(params['id'].to_i)
+  erb (:"accounts/edit")
+end
+
 # show
 get '/accounts/:id' do
   @account = Account.find(params['id'].to_i)
   @transactions = Transaction.all_by_account_id(params['id'].to_i)
   @total = Transaction.total(@account)
   erb (:"transactions/index")
-end
-
-
-# edit
-get '/accounts/:id/edit' do
-  @account = Account.find(params['id'].to_i)
-  erb (:"accounts/edit")
 end
 
 # update
