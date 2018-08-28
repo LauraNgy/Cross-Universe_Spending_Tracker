@@ -31,15 +31,20 @@ end
 
 # edit
 get '/merchants/:id/edit' do
+  @merchant = Merchant.find(params['id'].to_i)
   erb (:"merchants/edit")
 end
 
 # update
 post '/merchants/:id' do
-
+  @merchant = Merchant.new(params)
+  @merchant.update()
+  redirect to '/done'
 end
 
 # delete
 post '/merchants/:id/delete' do
-
+  @merchant = Merchant.find(params['id'].to_i)
+  Transaction.delete_merchant(@merchant)
+  redirect to '/done'
 end

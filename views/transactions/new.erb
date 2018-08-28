@@ -15,6 +15,7 @@
       <% for merchant in @merchants %>
         <option value="<%=merchant.id%>"><%=merchant.name%></option>
       <%end%>
+      <option selected value="0"></option>
     </select>
   </label>
   <label>What category does this belong to?

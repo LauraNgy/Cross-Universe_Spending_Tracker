@@ -1,0 +1,8 @@
+<h1>Please provide details for this merchant</h1>
+
+<form action="/merchants/<%=@merchant.id%>" method="post">
+  <label for="merchant-name">Merchant Name:
+    <input id="merchant-name" type="text" name="name" value="<%=@merchant.name%>">
+  </label>
+  <input type="submit" value="Update merchant">
+</form>

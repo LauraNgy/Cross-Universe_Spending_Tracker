@@ -46,8 +46,11 @@ class Transaction
         id = $1
     "
     values = [@merchant_id]
-    merchant = SqlRunner.run(sql, values)[0]
-    result = Merchant.new(merchant)
+    if @merchant_id != 0
+      merchant = SqlRunner.run(sql, values)[0]
+      result = Merchant.new(merchant)
+    else result = nil
+    end
     return result
   end
 
@@ -82,8 +85,10 @@ class Transaction
         id = $1
     "
     values = [@tag_id]
-    tag = SqlRunner.run(sql, values)[0]
-    result = Tag.new(tag)
+    if @tag_id != 0
+      tag = SqlRunner.run(sql, values)[0]
+      result = Tag.new(tag)
+    else result = nil
     return result
   end
 
