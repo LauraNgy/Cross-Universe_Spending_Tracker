@@ -6,7 +6,7 @@ class Transaction
     @id = params['id'].to_i if params['id']
     @amount = params['amount'].to_f
     @merchant_id = params['merchant_id'].to_i if params['merchant_id']
-    @tag_id = params['tag_id'].to_i
+    @tag_id = params['tag_id'].to_i if params['tag_id']
     @description = params['description']
     @account_id = params['account_id'].to_i
     @transaction_date = params['transaction_date']
@@ -62,6 +62,19 @@ class Transaction
     values = [@id]
     SqlRunner.run(sql, values)
   end
+
+  def set_tag_to_null()
+    sql = "
+      UPDATE transactions
+      SET
+        tag_id = NULL
+      WHERE
+        id = $1
+    "
+    values = [@id]
+    SqlRunner.run(sql, values)
+    update()
+    end
 
   def tag()
     sql = "
