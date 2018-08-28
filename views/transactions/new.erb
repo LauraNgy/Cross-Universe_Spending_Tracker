@@ -2,38 +2,31 @@
 
 <form action="/transactions" method="post">
   <label for="tr-amount">Ammount spent:
-    <input id="tr-amount" type="number" name="amount" value="0" step="0.01"/>
+    <input id="tr-amount" required type="number" name="amount" value="0" step="0.01"/>
   </label>
   <label for="tr-description">Please provide a small description for the transaction:
-    <input id="tr-description" type="text" name="description" value="Description here"/>
+    <input id="tr-description" required type="text" name="description" value="Description here"/>
   </label>
   <label>Please provide a small description for the transaction:
-    <input id="tr-date" type="date" name="transaction_date" value=""/>
+    <input id="tr-date" required type="date" name="transaction_date" value=""/>
   </label>
   <label>Where did you get this from?
     <select name="merchant_id">
+      <option selected disabled value="0"></option>
       <% for merchant in @merchants %>
         <option value="<%=merchant.id%>"><%=merchant.name%></option>
       <%end%>
-      <option selected value="0"></option>
     </select>
   </label>
   <label>What category does this belong to?
     <select name="tag_id">
+      <option selected disabled value="0"></option>
       <% for tag in @tags %>
         <option value="<%=tag.id%>"><%=tag.name%></option>
       <%end%>
-      <option selected value="0"></option>
     </select>
   </label>
-  <label>What currency is this transaction in?
-    <select name="account_id">
-      <% for account in @accounts %>
-        <option value="<%=account.id%>"
-          <%= "selected" if account.id == @acc_id %>
-          ><%=account.currency%></option>
-      <%end%>
-    </select>
-  </label>
+  <input type="hidden" name="account_id" value="<%=@account_id%>">
+
   <input type="submit" value="Create new transaction">
 </form>

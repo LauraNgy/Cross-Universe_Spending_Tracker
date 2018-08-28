@@ -15,7 +15,7 @@ get '/transactions/new' do
   @merchants = Merchant.all()
   @tags = Tag.all()
   @accounts = Account.all()
-  @acc_id = params['id'].to_i
+  @account_id = params['account_id'].to_i
   erb (:"transactions/new")
 end
 

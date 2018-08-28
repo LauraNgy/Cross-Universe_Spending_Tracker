@@ -13,25 +13,28 @@
   <label>Where did you get this from?
     <select name="merchant_id">
       <% for merchant in @merchants %>
-        <option value="<%=merchant.id%>"><%=merchant.name%></option>
+        <option value="<%=merchant.id%>"
+          <%="selected" if merchant.id == @transaction.merchant_id %>
+          ><%=merchant.name%></option>
       <%end%>
-      <option selected value="0"></option>
     </select>
   </label>
   <label>What category does this belong to?
     <select name="tag_id">
       <% for tag in @tags %>
-        <option value="<%=tag.id%>"><%=tag.name%></option>
+        <option value="<%=tag.id%>"
+          <%="selected" if tag.id == @transaction.tag_id %>
+          ><%=tag.name%></option>
       <%end%>
-      <option selected value="0"></option>
     </select>
   </label>
-  <label>What currency is this transaction in?
+  <label>Would you like to change it to a different currency?
     <select name="account_id">
       <% for account in @accounts %>
-        <option value="<%=account.id%>"><%=account.currency%></option>
+        <option value="<%=account.id%>"
+          <%="selected" if account.id == @transaction.account_id %>
+          ><%=account.currency%></option>
       <%end%>
-      <option selected value="0"></option>
     </select>
   </label>
   <input type="submit" value="Edit this transaction">
