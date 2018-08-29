@@ -2,23 +2,24 @@ require_relative('../db/sql_runner')
 
 class Account
 
-  attr_accessor :id, :currency, :budget
+  attr_accessor :id, :currency, :budget, :spending_limit
 
   def initialize(params)
     @id = params['id'].to_i if params['id']
     @currency = params['currency']
     @budget = params['budget'].to_f
+    @spending_limit = params['spending_limit'].to_f
   end
 
   def save()
     sql = "
       INSERT INTO accounts
-        (currency, budget)
+        (currency, budget, spending_limit)
       VALUES
-        ($1, $2)
+        ($1, $2, $3)
       RETURNING id
     "
-    values = [@currency, @budget]
+    values = [@currency, @budget, @spending_limit]
     results = SqlRunner.run(sql, values)[0]
     @id = results['id'].to_i
   end
@@ -27,13 +28,13 @@ class Account
     sql = "
       UPDATE accounts
       SET
-        (currency, budget)
+        (currency, budget, spending_limit)
         =
-        ($1, $2)
+        ($1, $2, $3)
       WHERE
-        id = $3
+        id = $4
     "
-    values = [@currency, @budget, @id]
+    values = [@currency, @budget, @spending_limit, @id]
     SqlRunner.run(sql, values)
   end
 
