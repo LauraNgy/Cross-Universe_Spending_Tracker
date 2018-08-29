@@ -61,19 +61,22 @@ Account.delete_all()
 @account1 = Account.new({
   "holder" => "Amy",
   "currency" => "pounds",
-  "budget" => 0
+  "budget" => 0,
+  "spending_limit" => 0
   })
 
 @account2 = Account.new({
   "holder" => "Dan",
   "currency" => "potatoes",
-  "budget" => 0
+  "budget" => 0,
+  "spending_limit" => 0
   })
 
 @account3 = Account.new({
   "holder" => "Rick",
   "currency" => "schmeckles",
-  "budget" => 0
+  "budget" => 0,
+  "spending_limit" => 0
   })
 
 @account1.save()
