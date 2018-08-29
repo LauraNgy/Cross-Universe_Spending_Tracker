@@ -33,6 +33,7 @@ end
 get '/accounts/:id' do
   @account = Account.find(params['id'].to_i)
   @transactions = Transaction.all_by_account_id(params['id'].to_i)
+  @transactions.sort! {|transaction1, transaction2| transaction2.transaction_date <=> transaction1.transaction_date}
   @total = Transaction.total(@account)
   erb (:"transactions/index")
 end
