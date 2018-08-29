@@ -16,7 +16,8 @@ CREATE TABLE merchants (
 CREATE TABLE accounts (
   id SERIAL4 PRIMARY KEY,
   currency VARCHAR(255),
-  budget NUMERIC(12, 2)
+  budget NUMERIC(12, 2),
+  spending_limit NUMERIC(12,2)
 );
 
 CREATE TABLE transactions (
