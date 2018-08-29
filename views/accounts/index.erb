@@ -2,14 +2,16 @@
   <h2>Your accounts</h2>
   <p><a href="/accounts/new">Add New Account</a></p>
   <% for account in @accounts %>
-  <div>
-  <h3><%= account.currency %> </h3>
-    <ul>
-      <li><a href="/accounts/<%=account.id%>">Show details</a></li>
-      <li><a href="/accounts/<%=account.id%>/edit">Edit Details</a></li>
-    </ul>
-    <form method="post" action="accounts/<%= account.id %>/delete">
-        <input type="submit" value="Delete Account"/>
-    </form>
+  <div class="acc-display">
+    <div class="obj-list">
+      <h3><%= account.currency %> </h3>
+        <ul>
+          <li><a href="/accounts/<%=account.id%>">Transactions</a></li>
+          <li><a href="/accounts/<%=account.id%>/edit">Edit Account</a></li>
+        </ul>
+        <form method="post" action="accounts/<%= account.id %>/delete">
+            <input type="submit" value="Delete Account"/>
+        </form>
+    </div>
   </div>
   <% end %>
