@@ -2,7 +2,7 @@
 
 <form action="/transactions/new" method="get">
   <input type="hidden" name="account_id" value="<%=@account.id%>">
-  <input type="submit" value="Add New Transaction">
+  <input class="form-bttn" type="submit" value="Add New Transaction">
 </form>
 
 <table class="paleOrangeRows">
@@ -22,7 +22,9 @@
   <%end%>
   <tfoot>
     <tr>
-    <td colspan="4">The total you have spent is <%=@total%></td>
+    <td colspan="4">
+      The total you have spent is <%=@total%>
+    </td>
   </tr>
 </tfoot>
 </table>

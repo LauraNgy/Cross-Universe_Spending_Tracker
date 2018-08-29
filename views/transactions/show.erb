@@ -28,10 +28,10 @@
     </td>
     <td><%=@transaction.transaction_date%></td>
     <td>
-      <a href="/transactions/<%=@transaction.id%>/edit">Edit</a>
+      <a href="/transactions/<%=@transaction.id%>/edit">Edit Transaction</a>
     </td>
     <td><form action="<%=@transaction.id%>/delete" method="post">
-      <input type="submit" value="Delete Transaction">
+      <input class="form-bttn" type="submit" value="Delete Transaction">
     </form></td>
   </tr>
 </table>

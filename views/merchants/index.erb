@@ -4,6 +4,6 @@
 
 <ul>
   <% for merchant in @merchants %>
-    <li class="obj-list"><a href="/merchants/<%=merchant.id%>"><%=merchant.name%></a></li>
+    <a href="/merchants/<%=merchant.id%>"><li class="obj-list"><%=merchant.name%></li></a>
   <%end%>
 </ul>

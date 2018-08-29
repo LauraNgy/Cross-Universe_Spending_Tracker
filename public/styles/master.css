@@ -20,7 +20,14 @@ h3{
 
 .acc-display{
   display: inline-block;
-  padding: 0 3vw;
+  margin: 2vh 3vw;
+  border-width: thin;
+  border-color: black;
+  border-style: solid;
+}
+
+.acc-display a{
+  text-decoration: none;
 }
 
 ul{
@@ -42,11 +49,21 @@ main{
 
 .obj-list{
   text-align: center;
-  margin: 2vh 0;
   padding: 2vh 2vw;
   border-width: thin;
   border-color: black;
   border-style: solid;
+}
+
+li.obj-list{
+  margin: 2vh 0;
+}
+
+.acc-display div{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid black;
 }
 
 .obj-list:hover{
@@ -59,4 +76,23 @@ a{
 
 a:hover{
   color: DarkBlue;
+}
+
+.form-bttn{
+  border: none;
+  background-color: inherit;
+  font-size: 1em;
+  text-decoration: underline;
+  padding: 0 1vw;
+}
+
+.form-bttn:hover{
+  color: DarkBlue;
+  cursor: pointer;
+}
+
+.acc-trans{
+  padding: 1vh 0;
+  text-align: center;
+  border-bottom: none;
 }

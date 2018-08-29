@@ -4,6 +4,6 @@
 
 <ul>
   <%for tag in @tags%>
-    <li class="obj-list"><a href="/tags/<%=tag.id%>"><%=tag.name%></a></li>
+    <a href="/tags/<%=tag.id%>"><li class="obj-list"><%=tag.name%></li></a>
   <%end%>
 </ul>
