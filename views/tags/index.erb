@@ -1,9 +1,9 @@
-<h1>Here are all your tags:</h1>
+<h1>All tags</h1>
+
+<p><a href="/tags/new">Add New Tag</a></p>
 
 <ul>
   <%for tag in @tags%>
     <li><a href="/tags/<%=tag.id%>"><%=tag.name%></a></li>
   <%end%>
 </ul>
-
-<a href="/tags/new">Add New Tag</a>

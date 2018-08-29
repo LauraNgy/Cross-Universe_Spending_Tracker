@@ -1,9 +1,9 @@
-<h1>Here is a list of all the merchants</h1>
+<h1>All merchants</h1>
+
+<p><a href="/merchants/new">Add New Merchant</a></p>
 
 <ul>
   <% for merchant in @merchants %>
     <li><a href="/merchants/<%=merchant.id%>"><%=merchant.name%></a></li>
   <%end%>
 </ul>
-
-<a href="/merchants/new">Add New Merchant</a>

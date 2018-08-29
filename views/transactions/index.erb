@@ -1,17 +1,24 @@
 <h1>Your budget is <%= @account.budget %> <%= @account.currency %> </h1>
-<div class="content">
-  <h1>Here are your transactions for <%= @account.currency %></h1>
-  <ul>
-    <% for transaction in @transactions %>
-    <li> <%= transaction.amount %> | <%= transaction.description %> |  <%= transaction.transaction_date %></li>
-    <a href="/transactions/<%=transaction.id%>">Show Details</a>
 
-    <%end%>
-  </ul>
-  <!-- <button> Add new transaction </button> -->
-  <form action="/transactions/new" method="get">
-    <input type="hidden" name="account_id" value="<%=@account.id%>">
-    <input type="submit" value="Add New Transaction">
-  </form>
-  <h1>The total you have spent is <%=@total%></h1>
-</div>
+<form action="/transactions/new" method="get">
+  <input type="hidden" name="account_id" value="<%=@account.id%>">
+  <input type="submit" value="Add New Transaction">
+</form>
+
+<table>
+  <th>Amount</th>
+  <th>Description</th>
+  <th>Date</th>
+  <th>Action</th>
+  <% for transaction in @transactions %>
+    <tr>
+      <td><%= transaction.amount %></td>
+      <td><%= transaction.description %></td>
+      <td><%= transaction.transaction_date %></td>
+      <td><a href="/transactions/<%=transaction.id%>">Show Details</td>
+      </tr>
+  <%end%>
+  <tr rowspan="4">
+    <td>The total you have spent is <%=@total%></td>
+  </tr>
+</table>

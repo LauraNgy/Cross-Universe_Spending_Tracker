@@ -1,4 +1,4 @@
-<h1>Please give details for the new transaction!</h1>
+<h1>Please give details for this transaction!</h1>
 
 <form action="/transactions/<%=@transaction.id%>" method="post">
   <label for="tr-amount">Amount spent:
@@ -10,8 +10,8 @@
   <label>Please provide a small description for the transaction:
     <input id="tr-date" type="date" name="transaction_date" value="<%=@transaction.transaction_date%>"/>
   </label>
-  <label>Where did you get this from?
-    <select name="merchant_id">
+  <label for="tr-merchant">Where did you get this from?
+    <select id="tr-merchant" name="merchant_id">
       <% for merchant in @merchants %>
         <option value="<%=merchant.id%>"
           <%="selected" if merchant.id == @transaction.merchant_id %>
@@ -19,8 +19,8 @@
       <%end%>
     </select>
   </label>
-  <label>What category does this belong to?
-    <select name="tag_id">
+  <label for="tr-tag">What category does this belong to?
+    <select id="tr-tag" name="tag_id">
       <% for tag in @tags %>
         <option value="<%=tag.id%>"
           <%="selected" if tag.id == @transaction.tag_id %>
@@ -28,8 +28,8 @@
       <%end%>
     </select>
   </label>
-  <label>Would you like to change it to a different currency?
-    <select name="account_id">
+  <label for="tr-currency">Would you like to change it to a different currency?
+    <select id="tr-currency" name="account_id">
       <% for account in @accounts %>
         <option value="<%=account.id%>"
           <%="selected" if account.id == @transaction.account_id %>

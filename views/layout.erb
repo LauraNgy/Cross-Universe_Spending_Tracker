@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>Spending Tracker</title>
-    <link rel="stylesheet" type="text/css" href="/styles/default.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/styles/default.css"> -->
   </head>
   <body>
     <header>
       <!-- breadcrumbs -->
     </header>
     <nav>
-      <a href="/accounts">See your accounts</a>
-      <a href="/merchants">See your merchants</a>
-      <a href="/tags">See your tags</a>
+      <ul>
+        <li><a href="/accounts">See your accounts</a></li>
+        <li><a href="/merchants">See your merchants</a></li>
+        <li><a href="/tags">See your tags</a></li>
+      </ul>
     </nav>
     <main>
       <%= yield %>

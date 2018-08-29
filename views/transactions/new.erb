@@ -7,19 +7,19 @@
   <label for="tr-description">Please provide a small description for the transaction:
     <input id="tr-description" required type="text" name="description" value="Description here"/>
   </label>
-  <label>Please provide a small description for the transaction:
+  <label for="tr-date">When did you make the transaction?
     <input id="tr-date" required type="date" name="transaction_date" value=""/>
   </label>
-  <label>Where did you get this from?
-    <select name="merchant_id">
+  <label for="tr-merchant">Where did you get this from?
+    <select id="tr-merchant" name="merchant_id">
       <option selected disabled value="0"></option>
       <% for merchant in @merchants %>
         <option value="<%=merchant.id%>"><%=merchant.name%></option>
       <%end%>
     </select>
   </label>
-  <label>What category does this belong to?
-    <select name="tag_id">
+  <label for="tr-tag">What category does this belong to?
+    <select id="tr-tag" name="tag_id">
       <option selected disabled value="0"></option>
       <% for tag in @tags %>
         <option value="<%=tag.id%>"><%=tag.name%></option>
@@ -27,6 +27,5 @@
     </select>
   </label>
   <input type="hidden" name="account_id" value="<%=@account_id%>">
-
   <input type="submit" value="Create new transaction">
 </form>
