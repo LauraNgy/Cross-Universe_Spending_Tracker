@@ -24,7 +24,7 @@
     <tr>
     <td colspan="4">
       The total you have spent is <%=@total%>
-      <% if (@account.budget - @total) < 5 %>
+      <% if @total > @account.spending_limit %>
         <img src="/images/red.png" alt="You're nearing your spending limit" style="float:left;width:1em;height:1em;">
       <%else%>
         <img src="/images/green.png" alt="You're not within your spending limit" style="float:left;width:1em;height:1em;">

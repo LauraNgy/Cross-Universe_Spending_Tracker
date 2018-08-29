@@ -3,9 +3,10 @@
 <form action="/accounts/<%=@account.id%>" method="post">
   <label for="acc-currency">Account currency:</label>
     <input id="acc-currency" type="text" name="currency" value="<%=@account.currency%>"/>
-  <label for="acc-budget">Please provide a budget:</label>
+  <label for="acc-budget">Please provide a new budget:</label>
     <input id="acc-holder" type="number" name="budget" value="<%=@account.budget%>" step="0.01"/>
-
+    <label for="acc-limit">Please provide a new spending limit:</label>
+      <input id="acc-limit" type="number" name="spending_limit" value="<%=@account.spending_limit%>" step="0.01"/>
   <input type="submit" value="Update account">
 </form>
 
