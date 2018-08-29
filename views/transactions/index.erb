@@ -5,11 +5,13 @@
   <input type="submit" value="Add New Transaction">
 </form>
 
-<table>
+<table class="paleOrangeRows">
+  <thead>
   <th>Amount</th>
   <th>Description</th>
   <th>Date</th>
   <th>Action</th>
+</thead>
   <% for transaction in @transactions %>
     <tr>
       <td><%= transaction.amount %></td>
@@ -18,7 +20,9 @@
       <td><a href="/transactions/<%=transaction.id%>">Show Details</td>
       </tr>
   <%end%>
-  <tr rowspan="4">
-    <td>The total you have spent is <%=@total%></td>
+  <tfoot>
+    <tr>
+    <td colspan="4">The total you have spent is <%=@total%></td>
   </tr>
+</tfoot>
 </table>

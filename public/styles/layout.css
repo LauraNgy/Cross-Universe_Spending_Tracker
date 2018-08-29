@@ -1,0 +1,32 @@
+body{
+  height: 100vh;
+  background: url("../images/bckgrd.png") no-repeat center fixed;
+  background-size: cover;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+.wrapper{
+  display: grid;
+  width: 100%;
+  grid-template-areas: "head head head"
+                       "nav main main"
+                       "nav foot foot";
+  grid-template-rows: 10vh 1fr 7vh;
+  grid-template-columns: 15vw 1fr 1fr;
+}
+
+.wrapper > header{
+  grid-area: head;
+}
+
+.wrapper > nav{
+  grid-area: nav;
+}
+
+.wrapper > main{
+  grid-area: main;
+}
+
+.wrapper > footer{
+  grid-area: foot;
+}
