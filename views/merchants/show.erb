@@ -1,6 +1,6 @@
-<h1>Merchant no. <%=@merchant.id%></h1>
+<h2>Merchant no. <%=@merchant.id%></h2>
 <div>
-  <h2><%=@merchant.name%></h2>
+  <h3><%=@merchant.name%></h3>
   <a href="/merchants/<%=@merchant.id%>/edit">Edit Merchant</a>
   <form action="/merchants/<%=@merchant.id%>/delete" method="post">
     <input type="submit" value="Delete Merchant">

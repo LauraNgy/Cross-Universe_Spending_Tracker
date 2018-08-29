@@ -1,6 +1,6 @@
-<h1>Tag no. <%=@tag.id%></h1>
+<h2>Tag no. <%=@tag.id%></h2>
 <div>
-  <h2><%=@tag.name%></h2>
+  <h3><%=@tag.name%></h3>
   <a href="/tags/<%=@tag.id%>/edit">Edit Tag</a>
   <form action="/tags/<%=@tag.id%>/delete" method="post">
     <input type="submit" value="Delete Tag">

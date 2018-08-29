@@ -1,9 +1,9 @@
 
-  <h1>Your accounts</h1>
+  <h2>Your accounts</h2>
   <p><a href="/accounts/new">Add New Account</a></p>
   <% for account in @accounts %>
   <div>
-  <h2><%= account.currency %> </h2>
+  <h3><%= account.currency %> </h3>
     <ul>
       <li><a href="/accounts/<%=account.id%>">Show details</a></li>
       <li><a href="/accounts/<%=account.id%>/edit">Edit Details</a></li>
