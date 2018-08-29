@@ -1,6 +1,7 @@
 <h1>Transaction no. <%=@transaction.id%></h1>
 
 <table class="paleOrangeRows">
+  <thead>
   <tr>
     <th>Amount</th>
     <th>Merchant</th>
@@ -8,6 +9,7 @@
     <th>Date</th>
     <th colspan="2">Action</th>
   </tr>
+</thead>
   <tr>
     <td><%=@transaction.amount%></td>
     <td>
