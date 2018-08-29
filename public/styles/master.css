@@ -91,7 +91,7 @@ a:hover{
   background-color: inherit;
   font-size: 1em;
   text-decoration: underline;
-  padding: 2vh 1vw;
+  padding: 2vh 0;
 }
 
 .form-bttn:hover{
