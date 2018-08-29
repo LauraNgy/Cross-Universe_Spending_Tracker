@@ -86,7 +86,20 @@ a:hover{
   padding: 0 1vw;
 }
 
+.form-bttn-special{
+  border: none;
+  background-color: inherit;
+  font-size: 1em;
+  text-decoration: underline;
+  padding: 2vh 1vw;
+}
+
 .form-bttn:hover{
+  color: DarkBlue;
+  cursor: pointer;
+}
+
+.form-bttn-special:hover{
   color: DarkBlue;
   cursor: pointer;
 }
