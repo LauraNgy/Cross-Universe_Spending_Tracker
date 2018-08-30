@@ -2,20 +2,28 @@
 
 
 <table class="paleOrangeRows">
+  <form action="/tags/<%=@tag.id%>" method="get">
   <thead>
-  <th>Amount</th>
-  <th>Description</th>
-  <th>Date</th>
-  <th>Merchant</th>
-  <th>Action</th>
+  <th><input class="form-bttn" type="submit" name="amount" value="Amount"></th>
+  <th><input class="form-bttn" type="submit" name="description" value="Description"></th>
+  <th><input class="form-bttn" type="submit" name="transaction_date" value="Date"></th>
+  <th><input class="form-bttn" type="submit" name="merchant_id" value="Merchant"></th>
+  <th colspan="2">Action</th>
 </thead>
+</form>
   <% for transaction in @transactions %>
     <tr>
       <td><%= transaction.amount %></td>
       <td><%= transaction.description %></td>
       <td><%= transaction.transaction_date %></td>
-      <td><%= transaction.merchant.name %></td>
-      <td><a href="/transactions/<%=transaction.id%>">Show Details</td>
-      </tr>
+      <td><% if transaction.merchant_id != nil%>
+            <%= transaction.merchant.name%>
+          <% else %>
+            <%="Unknown"%>
+          <%end%>
+      </td>
+      <td><a href="/transactions/<%=transaction.id%>/edit">Edit</td>
+      <td><a href="/transactions/<%=transaction.id%>/delete">Delete</td>
+    </tr>
   <%end%>
 </table>

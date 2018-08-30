@@ -1,20 +1,29 @@
 <h2>Merchant: <%=@merchant.name%></h2>
 
-<table class="paleOrangeRows">
-  <thead>
-  <th>Amount</th>
-  <th>Description</th>
-  <th>Date</th>
-  <th>Tag</th>
-  <th>Action</th>
-</thead>
-  <% for transaction in @transactions %>
-    <tr>
-      <td><%= transaction.amount %></td>
-      <td><%= transaction.description %></td>
-      <td><%= transaction.transaction_date %></td>
-      <td><%= transaction.tag.name %></td>
-      <td><a href="/transactions/<%=transaction.id%>">Show Details</td>
+
+  <table class="paleOrangeRows">
+    <form action="/merchants/<%=@merchant.id%>" method="get">
+    <thead>
+    <th><input class="form-bttn" type="submit" name="amount" value="Amount"></th>
+    <th><input class="form-bttn" type="submit" name="description" value="Description"></th>
+    <th><input class="form-bttn" type="submit" name="transaction_date" value="Date"></th>
+    <th><input class="form-bttn" type="submit" name="tag_id" value="Tag"></th>
+    <th colspan="2">Action</th>
+  </thead>
+  </form>
+    <% for transaction in @transactions %>
+      <tr>
+        <td><%= transaction.amount %></td>
+        <td><%= transaction.description %></td>
+        <td><%= transaction.transaction_date %></td>
+        <td><% if transaction.tag_id != nil%>
+              <%= transaction.tag.name%>
+            <% else %>
+              <%="Unknown"%>
+            <%end%>
+        </td>
+        <td><a href="/transactions/<%=transaction.id%>/edit">Edit</td>
+        <td><a href="/transactions/<%=transaction.id%>/delete">Delete</td>
       </tr>
-  <%end%>
-</table>
+    <%end%>
+  </table>
