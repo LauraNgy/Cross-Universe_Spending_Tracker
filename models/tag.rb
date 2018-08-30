@@ -34,6 +34,18 @@ class Tag
     SqlRunner.run(sql, values)
   end
 
+  def transactions()
+    sql = "
+      SELECT * FROM transactions
+      WHERE
+        transactions.tag_id = $1
+    "
+    values = [@id]
+    transactions = SqlRunner.run(sql, values)
+    result = Transaction.map_items(transactions)
+    return result
+  end
+
   def self.all()
     sql = "
     SELECT * FROM tags
