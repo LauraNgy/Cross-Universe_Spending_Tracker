@@ -1,8 +1,9 @@
 <h2>Please provide new details for this tag</h2>
 
-<form action="/tags/<%=@tag.id%>" method="post">
+<form class="to-style" action="/tags/<%=@tag.id%>" method="post">
   <label for="tag-name">Tag Name:
     <input id="tag-name" type="text" name="name" value="<%=@tag.name%>">
   </label>
+  <br>
   <input type="submit" value="Edit tag">
 </form>

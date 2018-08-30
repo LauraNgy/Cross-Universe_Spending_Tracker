@@ -113,3 +113,8 @@ a:hover{
 .acc-action a{
   text-decoration: underline;
 }
+
+.to-style label{
+  line-height: 3em;
+  font-size: 1.2em;
+}
