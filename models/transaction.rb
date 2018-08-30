@@ -105,8 +105,7 @@ class Transaction
     return result
   end
 
-  def self.sort_by(params)
-    transactions = Transaction.all_by_account_id(params['id'].to_i)
+  def self.sort_by(params, transactions)
     keys = params.keys()
     keys.each {|key|
       case key
@@ -119,10 +118,10 @@ class Transaction
       when 'transaction_date'
         transactions.sort!{|transaction1, transaction2|
           transaction2.transaction_date <=> transaction1.transaction_date}
-      when 'merchant'
+      when 'merchant_id'
         transactions.sort!{|transaction1, transaction2|
           transaction1.merchant <=> transaction2.merchant}
-      when 'tag'
+      when 'tag_id'
         transactions.sort!{|transaction1, transaction2|
           transaction1.tag <=> transaction2.tag}
       end
