@@ -2,8 +2,17 @@
 
 <p><a href="/merchants/new">Add New Merchant</a></p>
 
-<ul>
   <% for merchant in @merchants %>
-    <a href="/merchants/<%=merchant.id%>"><li class="obj-list"><%=merchant.name%></li></a>
-  <%end%>
-</ul>
+  <div class="acc-display">
+    <a href="/merchants/<%=merchant.id%>">
+      <div class="obj-list">
+        <h3><%= merchant.name %> </h3>
+      </div>
+    </a>
+    <div class="acc-action">
+      <a href="/merchants/<%=merchant.id%>/edit">Edit Merchant</a>
+      <br>
+      <a href="/merchants/<%=merchant.id%>/delete">Delete Merchant</a>
+    </div>
+  </div>
+  <% end %>

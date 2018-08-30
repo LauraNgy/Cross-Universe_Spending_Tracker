@@ -2,8 +2,17 @@
 
 <p><a href="/tags/new">Add New Tag</a></p>
 
-<ul>
   <%for tag in @tags%>
-    <a href="/tags/<%=tag.id%>"><li class="obj-list"><%=tag.name%></li></a>
-  <%end%>
-</ul>
+  <div class="acc-display">
+    <a href="/tags/<%=tag.id%>">
+      <div class="obj-list">
+        <h3><%= tag.name %> </h3>
+      </div>
+    </a>
+    <div class="acc-action">
+      <a href="/tags/<%=tag.id%>/edit">Edit Tag</a>
+      <br>
+      <a href="/tags/<%=tag.id%>/delete">Delete Tag</a>
+    </div>
+  </div>
+  <% end %>
