@@ -120,10 +120,10 @@ class Transaction
           transaction2.transaction_date <=> transaction1.transaction_date}
       when 'merchant_id'
         transactions.sort!{|transaction1, transaction2|
-          transaction1.merchant <=> transaction2.merchant}
+          transaction1.merchant.name <=> transaction2.merchant.name}
       when 'tag_id'
         transactions.sort!{|transaction1, transaction2|
-          transaction1.tag <=> transaction2.tag}
+          transaction1.tag.name <=> transaction2.tag.name}
       end
     }
     return transactions
