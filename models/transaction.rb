@@ -105,6 +105,25 @@ class Transaction
     return result
   end
 
+  def self.sort_by(params)
+    transactions = Transaction.all_by_account_id(params['id'].to_i)
+    keys = params.keys()
+    keys.each {|key|
+      case key
+      when 'amount'
+        transactions.sort!{|transaction1, transaction2|
+          transaction1.amount <=> transaction2.amount}
+      when 'description'
+        transactions.sort!{|transaction1, transaction2|
+          transaction1.description <=> transaction2.description}
+      when 'transaction_date'
+        transactions.sort!{|transaction1, transaction2|
+          transaction2.transaction_date <=> transaction1.transaction_date}
+      end
+    }
+    return transactions
+  end
+
   def self.delete_merchant(merchant)
     transactions = Transaction.all()
     transactions.each { |transaction|
