@@ -19,7 +19,7 @@ h3{
 }
 
 .acc-display{
-  display: inline-block;
+  display: block;
   margin: 2vh 3vw;
   border-width: thin;
   border-color: black;
@@ -104,8 +104,12 @@ a:hover{
   cursor: pointer;
 }
 
-.acc-trans{
+.acc-action{
   padding: 1vh 0;
   text-align: center;
   border-bottom: none;
+}
+
+.acc-action a{
+  text-decoration: underline;
 }

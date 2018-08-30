@@ -147,7 +147,7 @@ Account.delete_all()
   "amount" => 701.42,
   "merchant_id" => @merchant5.id,
   "tag_id" => @tag5.id,
-  "description" => "repair portal gun",
+  "description" => "repair transporter gun",
   "account_id" => @account5.id,
   "transaction_date" => "5 Oct 2018"
   })
@@ -162,7 +162,7 @@ Account.delete_all()
   })
 
 @transaction6 = Transaction.new({
-  "amount" => 100,
+  "amount" => 2.32,
   "merchant_id" => @merchant3.id,
   "tag_id" => @tag2.id,
   "description" => "brass flute",
@@ -198,7 +198,7 @@ Account.delete_all()
   })
 
 @transaction10 = Transaction.new({
-  "amount" => 36,
+  "amount" => 1500,
   "merchant_id" => @merchant5.id,
   "tag_id" => @tag3.id,
   "description" => "transporter gun replacement",

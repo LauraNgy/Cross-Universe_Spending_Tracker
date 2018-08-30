@@ -3,13 +3,15 @@
   <p><a href="/accounts/new">Add New Account</a></p>
   <% for account in @accounts %>
   <div class="acc-display">
-    <a href="/accounts/<%=account.id%>/edit">
+    <a href="/accounts/<%=account.id%>">
       <div class="obj-list">
         <h3><%= account.currency %> </h3>
       </div>
     </a>
-    <div class="acc-trans">
-      <a href="/accounts/<%=account.id%>">Transactions</a>
+    <div class="acc-action">
+      <a href="/accounts/<%=account.id%>/edit">Edit Account</a>
+      <br>
+      <a href="/accounts/<%=account.id%>/delete">Delete Account</a>
     </div>
   </div>
   <% end %>
