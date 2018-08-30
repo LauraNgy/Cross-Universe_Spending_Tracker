@@ -38,6 +38,11 @@ table.paleOrangeRows tfoot {
 table.paleOrangeRows tfoot td {
   font-size: 1.2em;
 }
+
+table.paleOrangeRows tfoot td p, img {
+  display: inline;
+}
+
 table.paleOrangeRows tfoot .links {
   text-align: right;
 }
