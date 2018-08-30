@@ -26,6 +26,7 @@ end
 # show
 get '/merchants/:id' do
   @merchant = Merchant.find(params['id'].to_i)
+  @transactions = @merchant.transactions()
   erb (:"merchants/show")
 end
 
