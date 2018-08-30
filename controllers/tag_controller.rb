@@ -26,6 +26,7 @@ end
 # show
 get '/tags/:id' do
   @tag = Tag.find(params['id'].to_i)
+  @transactions = @tag.transactions()
   erb (:"tags/show")
 end
 

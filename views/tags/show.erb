@@ -1,8 +1,21 @@
-<h2>Tag no. <%=@tag.id%></h2>
-<div>
-  <h3><%=@tag.name%></h3>
-  <a href="/tags/<%=@tag.id%>/edit">Edit Tag</a>
-  <form action="/tags/<%=@tag.id%>/delete" method="post">
-    <input class="form-bttn-special" type="submit" value="Delete Tag">
-  </form>
-</div>
+<h2>Tag: <%=@tag.name%></h2>
+
+
+<table class="paleOrangeRows">
+  <thead>
+  <th>Amount</th>
+  <th>Description</th>
+  <th>Date</th>
+  <th>Merchant</th>
+  <th>Action</th>
+</thead>
+  <% for transaction in @transactions %>
+    <tr>
+      <td><%= transaction.amount %></td>
+      <td><%= transaction.description %></td>
+      <td><%= transaction.transaction_date %></td>
+      <td><%= transaction.merchant.name %></td>
+      <td><a href="/transactions/<%=transaction.id%>">Show Details</td>
+      </tr>
+  <%end%>
+</table>
