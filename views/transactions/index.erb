@@ -34,7 +34,11 @@
             <%end%>
         </td>
         <td><a href="/transactions/<%=transaction.id%>/edit">Edit</td>
-        <td><a href="/transactions/<%=transaction.id%>/delete">Delete</td>
+        <td>
+          <form action="/transactions/<%= transaction.id %>/delete" method="post">
+            <input class="form-bttn" type="submit" value="Delete"/>
+          </form>
+        </td>
       </tr>
     <%end%>
     <tfoot>

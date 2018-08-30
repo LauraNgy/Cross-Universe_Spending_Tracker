@@ -20,7 +20,7 @@ end
 post '/tags' do
   @new_tag = Tag.new(params)
   @new_tag.save()
-  redirect to '/done'
+  redirect to '/tags'
 end
 
 # show
@@ -41,12 +41,12 @@ end
 post '/tags/:id' do
   @tag = Tag.new(params)
   @tag.update()
-  redirect to '/done'
+  redirect to '/tags'
 end
 
 # delete
 post '/tags/:id/delete' do
   @tag = Tag.find(params['id'].to_i)
   Transaction.delete_tag(@tag)
-  redirect to '/done'
+  redirect to '/tags'
 end

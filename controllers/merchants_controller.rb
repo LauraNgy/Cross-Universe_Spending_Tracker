@@ -20,7 +20,7 @@ end
 post '/merchants' do
   @new_merchant = Merchant.new(params)
   @new_merchant.save()
-  redirect to '/done'
+  redirect to '/merchants'
 end
 
 # show
@@ -41,12 +41,12 @@ end
 post '/merchants/:id' do
   @merchant = Merchant.new(params)
   @merchant.update()
-  redirect to '/done'
+  redirect to '/merchants'
 end
 
 # delete
 post '/merchants/:id/delete' do
   @merchant = Merchant.find(params['id'].to_i)
   Transaction.delete_merchant(@merchant)
-  redirect to '/done'
+  redirect to '/merchants'
 end
