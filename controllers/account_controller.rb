@@ -32,7 +32,8 @@ end
 # show
 get '/accounts/:id' do
   @account = Account.find(params['id'].to_i)
-  @transactions = Transaction.sort_by(params)
+  @trans_by_acc = Transaction.all_by_account_id(@account.id)
+  @transactions = Transaction.sort_by(params, @trans_by_acc)
   @total = Transaction.total(@account)
   erb (:"transactions/index")
 end

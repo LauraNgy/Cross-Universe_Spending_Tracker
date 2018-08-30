@@ -26,7 +26,8 @@ end
 # show
 get '/tags/:id' do
   @tag = Tag.find(params['id'].to_i)
-  @transactions = @tag.transactions()
+  @trans_by_tag = @tag.transactions()
+  @transactions = Transaction.sort_by(params, @trans_by_tag)
   erb (:"tags/show")
 end
 

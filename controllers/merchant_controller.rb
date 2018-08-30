@@ -26,7 +26,8 @@ end
 # show
 get '/merchants/:id' do
   @merchant = Merchant.find(params['id'].to_i)
-  @transactions = @merchant.transactions()
+  @trans_by_merc = @merchant.transactions
+  @transactions = Transaction.sort_by(params, @trans_by_merc)
   erb (:"merchants/show")
 end
 
