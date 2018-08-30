@@ -8,6 +8,7 @@ also_reload('../models/*')
 # index
 get '/accounts' do
   @accounts = Account.all()
+  @accounts.sort_by!{|account| account.currency}
   erb (:"accounts/index")
 end
 
