@@ -119,6 +119,12 @@ class Transaction
       when 'transaction_date'
         transactions.sort!{|transaction1, transaction2|
           transaction2.transaction_date <=> transaction1.transaction_date}
+      when 'merchant'
+        transactions.sort!{|transaction1, transaction2|
+          transaction1.merchant <=> transaction2.merchant}
+      when 'tag'
+        transactions.sort!{|transaction1, transaction2|
+          transaction1.tag <=> transaction2.tag}
       end
     }
     return transactions
