@@ -71,14 +71,14 @@ Account.delete_all()
 ########ACCOUNTS#############
 @account1 = Account.new({
   "currency" => "Bottle Caps",
-  "budget" => 300,
-  "spending_limit" => 100
+  "budget" => 100,
+  "spending_limit" => 300
   })
 
 @account2 = Account.new({
   "currency" => "Pounds",
-  "budget" => 1000,
-  "spending_limit" => 750
+  "budget" => 750,
+  "spending_limit" => 100
   })
 
 @account3 = Account.new({
@@ -89,8 +89,8 @@ Account.delete_all()
 
   @account4 = Account.new({
     "currency" => "Knuts",
-    "budget" => 100,
-    "spending_limit" => 50
+    "budget" => 50,
+    "spending_limit" => 100
     })
 
 @account5 = Account.new({
