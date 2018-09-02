@@ -16,14 +16,13 @@
       <td><%= transaction.amount %></td>
       <td><%= transaction.description %></td>
       <td><%= transaction.transaction_date %></td>
-      <td><% if transaction.merchant_id != nil%>
+      <td><% if transaction.merchant_id != 0%>
             <%= transaction.merchant.name%>
           <% else %>
             <%="Unknown"%>
           <%end%>
       </td>
       <td><a href="/transactions/<%=transaction.id%>/edit">Edit</td>
-      <td><a href="/transactions/<%=transaction.id%>/delete">Delete</td>
     </tr>
   <%end%>
 </table>

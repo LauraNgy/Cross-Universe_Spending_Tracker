@@ -21,16 +21,16 @@
         <td><%= transaction.amount %></td>
         <td><%= transaction.description %></td>
         <td><%= transaction.transaction_date %></td>
-        <td><% if transaction.merchant_id != nil %>
-              <%= transaction.merchant.name %>
-            <% else %>
+        <td><% if transaction.merchant_id == 0 %>
               <%="Unknown"%>
+            <% else %>
+              <%= transaction.merchant.name %>
             <%end%>
         </td>
-        <td><% if transaction.tag_id != nil%>
-              <%= transaction.tag.name%>
-            <% else %>
+        <td><% if transaction.tag_id == 0%>
               <%="Unknown"%>
+            <% else %>
+              <%= transaction.tag.name%>
             <%end%>
         </td>
         <td><a href="/transactions/<%=transaction.id%>/edit">Edit</td>

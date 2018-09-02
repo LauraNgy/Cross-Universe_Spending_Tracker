@@ -12,3 +12,7 @@
     <br>
   <input type="submit" value="Update account">
 </form>
+<br>
+<form action="/accounts/<%= @account.id %>/delete" method="post">
+    <input type="submit" value="Delete Account"/>
+</form>

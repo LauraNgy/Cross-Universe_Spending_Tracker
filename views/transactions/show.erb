@@ -7,7 +7,7 @@
     <th>Merchant</th>
     <th>Tag</th>
     <th>Date</th>
-    <th colspan="2">Action</th>
+    <th>Action</th>
   </tr>
 </thead>
   <tr>
@@ -28,10 +28,7 @@
     </td>
     <td><%=@transaction.transaction_date%></td>
     <td>
-      <a href="/transactions/<%=@transaction.id%>/edit">Edit Transaction</a>
+      <a href="/transactions/<%=@transaction.id%>/edit">Edit</a>
     </td>
-    <td><form action="<%=@transaction.id%>/delete" method="post">
-      <input class="form-bttn-special" type="submit" value="Delete Transaction">
-    </form></td>
   </tr>
 </table>
