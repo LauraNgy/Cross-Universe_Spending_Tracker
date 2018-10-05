@@ -13,36 +13,43 @@ Account.delete_all()
 ###########TAGS##############
 
 @tag1 = Tag.new({
-  "name" => "groceries"
+  "name" => "Unknown"
   })
 
 @tag2 = Tag.new({
-  "name" => "beauty"
+  "name" => "groceries"
   })
 
 @tag3 = Tag.new({
-  "name" => "transport"
+  "name" => "beauty"
   })
 
 @tag4 = Tag.new({
-  "name" => "entertainment"
+  "name" => "transport"
   })
 
 @tag5 = Tag.new({
+  "name" => "entertainment"
+  })
+
+@tag6 = Tag.new({
   "name" => "utilities"
   })
+
 
 @tag1.save()
 @tag2.save()
 @tag3.save()
 @tag4.save()
 @tag5.save()
+@tag6.save()
 
 
 
 ##########MERCHANTS##########
+
 @merchant1 = Merchant.new({
-  "name" => "Diamond City Surplus"
+  "name" => "Unknown"
   })
 
 @merchant2 = Merchant.new({
@@ -61,18 +68,23 @@ Account.delete_all()
   "name" => "Citadel of Ricks"
   })
 
+@merchant6 = Merchant.new({
+  "name" => "Diamond City Surplus"
+  })
+
 @merchant1.save()
 @merchant2.save()
 @merchant3.save()
 @merchant4.save()
 @merchant5.save()
+@merchant6.save()
 
 
 ########ACCOUNTS#############
 @account1 = Account.new({
   "currency" => "Bottle Caps",
-  "budget" => 100,
-  "spending_limit" => 300
+  "budget" => 300,
+  "spending_limit" => 100
   })
 
 @account2 = Account.new({
@@ -89,8 +101,8 @@ Account.delete_all()
 
   @account4 = Account.new({
     "currency" => "Knuts",
-    "budget" => 50,
-    "spending_limit" => 100
+    "budget" => 100,
+    "spending_limit" => 50
     })
 
 @account5 = Account.new({
