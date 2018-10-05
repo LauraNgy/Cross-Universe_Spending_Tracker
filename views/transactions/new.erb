@@ -17,7 +17,9 @@
     <select id="tr-merchant" name="merchant_id">
       <option selected disabled value="0"></option>
       <% for merchant in @merchants %>
+      <% if merchant.name != 'Unknown' %>
         <option value="<%=merchant.id%>"><%=merchant.name%></option>
+      <%end%>
       <%end%>
     </select>
   </label>
@@ -26,7 +28,9 @@
     <select id="tr-tag" name="tag_id">
       <option selected disabled value="0"></option>
       <% for tag in @tags %>
+      <% if tag.name != 'Unknown' %>
         <option value="<%=tag.id%>"><%=tag.name%></option>
+      <%end%>
       <%end%>
     </select>
   </label>
