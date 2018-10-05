@@ -18,6 +18,7 @@
       <% for merchant in @merchants %>
         <option value="<%=merchant.id%>"
           <%="selected" if merchant.id == @transaction.merchant_id %>
+          <%="disabled" if merchant.name == 'Unknown' %>
           ><%=merchant.name%></option>
       <%end%>
     </select>
@@ -28,6 +29,7 @@
       <% for tag in @tags %>
         <option value="<%=tag.id%>"
           <%="selected" if tag.id == @transaction.tag_id %>
+          <%="disabled" if tag.name == 'Unknown' %>
           ><%=tag.name%></option>
       <%end%>
     </select>
