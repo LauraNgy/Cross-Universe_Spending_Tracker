@@ -13,18 +13,10 @@
   <tr>
     <td><%=@transaction.amount%></td>
     <td>
-      <%if @merchant != nil%>
         <%=@merchant.name%>
-      <% else %>
-        <%="Unknown"%>
-      <%end%>
     </td>
     <td>
-      <%if @tag != nil%>
         <%=@tag.name%>
-      <%else%>
-        <%="Unknown"%>
-      <%end%>
     </td>
     <td><%=@transaction.transaction_date%></td>
     <td>

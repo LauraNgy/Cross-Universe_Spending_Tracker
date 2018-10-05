@@ -16,12 +16,7 @@
         <td><%= transaction.amount %></td>
         <td><%= transaction.description %></td>
         <td><%= transaction.transaction_date %></td>
-        <td><% if transaction.tag_id != 0%>
-              <%= transaction.tag.name%>
-            <% else %>
-              <%="Unknown"%>
-            <%end%>
-        </td>
+        <td><%= transaction.tag.name%></td>
         <td><a href="/transactions/<%=transaction.id%>/edit">Edit</td>
       </tr>
     <%end%>
