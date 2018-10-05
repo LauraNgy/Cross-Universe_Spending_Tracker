@@ -54,6 +54,19 @@ class Tag
     return self.map_items(tags)
   end
 
+  def self.get_default()
+    sql = "
+      SELECT id
+      FROM
+        tags
+      WHERE
+        name = 'Unknown'
+    "
+    result = SqlRunner.run(sql)
+    default_id = result[0]['id'].to_i
+    return default_id
+  end
+
   def self.find(id)
     sql = "
       SELECT * FROM tags

@@ -54,27 +54,27 @@ class Transaction
     return result
   end
 
-  def set_merchant_to_null()
+  def set_merchant_to_default(default_id)
     sql = "
       UPDATE transactions
       SET
-        merchant_id = NULL
+        merchant_id = $1
       WHERE
-        id = $1
+        id = $2
     "
-    values = [@id]
+    values = [default_id, @id]
     SqlRunner.run(sql, values)
   end
 
-  def set_tag_to_null()
+  def set_tag_to_default(default_id)
     sql = "
       UPDATE transactions
       SET
-        tag_id = NULL
+        tag_id = $1
       WHERE
-        id = $1
+        id = $2
     "
-    values = [@id]
+    values = [default_id, @id]
     SqlRunner.run(sql, values)
     end
 
@@ -133,7 +133,8 @@ class Transaction
     transactions = Transaction.all()
     transactions.each { |transaction|
       if transaction.merchant_id == merchant.id
-        transaction.set_merchant_to_null()
+        default = Merchant.get_default()
+        transaction.set_merchant_to_default(default)
       end
     }
     Merchant.delete(merchant.id)
@@ -143,7 +144,8 @@ class Transaction
     transactions = Transaction.all()
     transactions.each { |transaction|
       if transaction.tag_id == tag.id
-        transaction.set_tag_to_null()
+        default = Tag.get_default()
+        transaction.set_tag_to_default(default);
       end
     }
     Tag.delete(tag.id)
