@@ -3,6 +3,7 @@
 <p><a href="/merchants/new">Add New Merchant</a></p>
 
   <% for merchant in @merchants %>
+  <% if merchant.name != 'Unknown' %>
   <div class="acc-display">
     <a href="/merchants/<%=merchant.id%>">
       <div class="obj-list">
@@ -13,4 +14,5 @@
       <a href="/merchants/<%=merchant.id%>/edit">Edit Merchant</a>
     </div>
   </div>
+  <% end %>
   <% end %>

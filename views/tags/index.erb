@@ -3,6 +3,7 @@
 <p><a href="/tags/new">Add New Tag</a></p>
 
   <%for tag in @tags%>
+  <% if tag.name != 'Unknown' %>
   <div class="acc-display">
     <a href="/tags/<%=tag.id%>">
       <div class="obj-list">
@@ -13,4 +14,5 @@
       <a href="/tags/<%=tag.id%>/edit">Edit Tag</a>
     </div>
   </div>
+  <% end %>
   <% end %>
