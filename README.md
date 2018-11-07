@@ -38,10 +38,10 @@ We were **NOT** allowed to use:
 * The user should be able to filter their view of transactions, for example, to view all transactions in a given month, or view all spending on groceries.
 
 There are four classes:
--Account
--Merchant
--Tag
--Transaction
+ - Account
+ - Merchant
+ - Tag
+ - Transaction
 
 All four classes allow CRUD processes through REST-full routes, described in the controllers
 
@@ -50,11 +50,13 @@ All four classes allow CRUD processes through REST-full routes, described in the
 
 There are three main routes the user can view from the main screen: Accounts, Tags and Merchants.
 
+
 ![Accounts Index](screenshots/accounts.png)
 *Screenshot of the main view of accounts*
 
 All three routes are styles in a similar fashion. The main container which holds the type of account/tag/merchant is a link to a table of all transactions pertaining to that particular type. Below the main container is a smaller one which redirects the user to an edit form which also includes the option to delete that particular instance.
 Upon deletion a transaction remains in the database and the field which was deleted gets replaced with 'Unknown'.
+
 
 ![Transactions by Account type](screenshots/trans_by_accounts.png)
 *Screenshot of transactions by account type*
